@@ -1,13 +1,30 @@
 const boardScript = document.querySelector(".board");
 const showStatus = document.querySelector(".win-container");
 const msg = document.getElementById("msg");
+const circleChoose = document.getElementById("circle-button");
+const crossChosse = document.getElementById("cross-button");
 const playAgainBtn = document.getElementById("play-again");
+const popUp = document.querySelector(".popup");
+const popUpContainer = document.querySelector(".popup-container");
+let playerTurn = false;
 const board = [
   ["", "", ""],
   ["", "", ""],
   ["", "", ""],
 ];
 let win = false;
+let count = 0;
+circleChoose.addEventListener("click", () => {
+  popUpContainer.classList.add("hide-popup-container");
+  popUp.classList.add("hide-popup");
+  count = 0;
+});
+
+crossChosse.addEventListener("click", () => {
+  popUpContainer.classList.add("hide-popup-container");
+  popUp.classList.add("hide-popup");
+  count = 1;
+});
 function displayBoard() {
   boardScript.innerHTML = null;
   for (let i = 0; i < board.length; i++) {
@@ -43,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 playAgainBtn.addEventListener("click", playAgain);
 const crossAndCircle = ["circle", "cross"];
-let count = 0;
+
 let occupied = 0;
 function rowCheck() {
   for (let i = 0; i < board.length; i++) {
@@ -133,3 +150,10 @@ function Draw() {
     endGame("Draw");
   }
 }
+
+function random(n) {
+  return Math.floor(Math.random() * n);
+}
+const bot = () => {
+  const cornor = [0, 2];
+};
