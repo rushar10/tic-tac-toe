@@ -64,8 +64,9 @@
   font-size: 48px;
   margin-bottom: 0.5em;
   background: linear-gradient(to right, #ef32d9, #89fffd);
-  background-clip: text;
+  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 .board {
   background: white;
